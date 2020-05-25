@@ -8,16 +8,16 @@ package com.examples.yotubelistdemo.constant;
 public class Const {
 
     public static final String[] posterArr = new String[]{
-            "http://jzvd-pic.nathen.cn/jzvd-pic/bd7ffc84-8407-4037-a078-7d922ce0fb0f.jpg",
-            "http://jzvd-pic.nathen.cn/jzvd-pic/f2dbd12e-b1cb-4daf-aff1-8c6be2f64d1a.jpg",
-            "http://jzvd-pic.nathen.cn/jzvd-pic/ccd86ca1-66c7-4331-9450-a3b7f765424a.png",
-            "http://jzvd-pic.nathen.cn/jzvd-pic/2adde364-9be1-4864-b4b9-0b0bcc81ef2e.jpg",
-            "http://jzvd-pic.nathen.cn/jzvd-pic/2a877211-4b68-4e3a-87be-6d2730faef27.png",
-            "http://jzvd-pic.nathen.cn/jzvd-pic/aaeb5da9-ac50-4712-a28d-863fe40f1fc6.png",
-            "http://jzvd-pic.nathen.cn/jzvd-pic/e565f9cc-eedc-45f0-99f8-5b0fa3aed567%281%29.jpg",
-            "http://jzvd-pic.nathen.cn/jzvd-pic/3430ec64-e6a7-4d8e-b044-9d408e075b7c.jpg",
-            "http://jzvd-pic.nathen.cn/jzvd-pic/2204a578-609b-440e-8af7-a0ee17ff3aee.jpg",
-            "http://jzvd-pic.nathen.cn/jzvd-pic/1bb2ebbe-140d-4e2e-abd2-9e7e564f71ac.png"
+            "http://img.lemmovie.com/image/manager/20200304/b933698f6839731fd1d8492ca22c13e5.jpg",
+            "http://img.lemmovie.com/image/manager/20200428/1402e19349496636a4ff9d794844a608.jpg",
+            "http://img.lemmovie.com/image/manager/20191209/ae0d5db86cfe136ce5d9059564c1738a.jpg",
+            "http://img.lemmovie.com/image/manager/20191209/a5b273038e914cf92786a07a38329ec4.jpg",
+            "http://img.lemmovie.com/image/manager/20191111/f6e01e7e501ac10ef8fdfbb717369bd3.jpg",
+            "http://img.lemmovie.com/image/manager/20191111/4a682665458bf54ff847fff817542e1f.jpg",
+            "http://img.lemmovie.com/image/manager/20191111/61151f1489f2709bc893765770a546d9.jpg",
+            "http://img.lemmovie.com/image/manager/20191111/4c7736260e3e04f911f25c962fb22239.jpg",
+            "http://img.lemmovie.com/image/manager/20191111/08d925c814d7958af34ff10157a01834.jpg",
+            "http://img.lemmovie.com/image/manager/20191111/e5b47acf7794a712d31b0a69b63d21f0.jpg"
     };
 
     public static final String[] videoArr = new String[]{
