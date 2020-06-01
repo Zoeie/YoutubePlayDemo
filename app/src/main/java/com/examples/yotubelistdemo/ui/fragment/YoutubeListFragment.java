@@ -140,8 +140,24 @@ public class YoutubeListFragment extends Fragment implements YouTubePlayer.OnFul
                 super.onLoaded(s);
                 player.play();
             }
+
+            @Override
+            public void onVideoStarted() {
+                super.onVideoStarted();
+                //视频播放成功
+                disableVideoTitle();
+            }
         });
         LogUtil.d("xxx player:" + player);
+    }
+
+    private void disableVideoTitle() {
+        if (playerView == null) return;
+        int a = 0x7f0b09fa;//player_video_title_view
+        View view = playerView.findViewById(a);
+        if (view != null) {
+            view.setEnabled(false);
+        }
     }
 
     @Override
