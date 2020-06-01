@@ -33,7 +33,7 @@ import java.util.List;
  * created 2020/5/25 14:06
  */
 
-public class YoutubeListFragment extends Fragment implements YouTubePlayer.OnFullscreenListener, BaseQuickAdapter.OnItemClickListener, YouTubePlayer.OnInitializedListener {
+public class YoutubeListFragment extends Fragment implements YouTubePlayer.OnFullscreenListener, BaseQuickAdapter.OnItemClickListener, YouTubePlayer.OnInitializedListener, YouTubePlayer.PlaybackEventListener {
 
     private RecyclerView rvList;
     private List<YoutubeData> youtubeDataList = new ArrayList<>();
@@ -134,6 +134,7 @@ public class YoutubeListFragment extends Fragment implements YouTubePlayer.OnFul
     public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean restored) {
         player = youTubePlayer;
         youTubePlayer.setOnFullscreenListener(this);
+        youTubePlayer.setPlaybackEventListener(this);
         youTubePlayer.setPlayerStateChangeListener(new YoutubeListener() {
             @Override
             public void onLoaded(String s) {
@@ -144,11 +145,23 @@ public class YoutubeListFragment extends Fragment implements YouTubePlayer.OnFul
             @Override
             public void onVideoStarted() {
                 super.onVideoStarted();
+                //viewId(playerView);
                 //视频播放成功
                 disableVideoTitle();
+                hideMoreVideoButton();
             }
         });
         LogUtil.d("xxx player:" + player);
+    }
+
+    private void hideMoreVideoButton() {
+        if (playerView == null) return;
+        int a = 0x7f0b0c39;//related_videos_screen_button
+        View view = playerView.findViewById(a);
+        if (view != null) {
+            view.setVisibility(View.GONE);
+            view.setEnabled(false);
+        }
     }
 
     private void disableVideoTitle() {
@@ -157,6 +170,21 @@ public class YoutubeListFragment extends Fragment implements YouTubePlayer.OnFul
         View view = playerView.findViewById(a);
         if (view != null) {
             view.setEnabled(false);
+        }
+    }
+
+    private void viewId(View root) {
+        if (root instanceof ViewGroup) {
+            for (int i = 0; i < ((ViewGroup) root).getChildCount(); i++) {
+                View childAt = ((ViewGroup) root).getChildAt(i);
+                if (childAt instanceof ViewGroup) {
+                    viewId(childAt);
+                } else {
+                    LogUtil.d("xxx view:" + childAt);
+                }
+            }
+        } else {
+            LogUtil.d("xxx view:" + root);
         }
     }
 
@@ -173,5 +201,30 @@ public class YoutubeListFragment extends Fragment implements YouTubePlayer.OnFul
         if(player != null) {
             player.setFullscreen(false);
         }
+    }
+
+    @Override
+    public void onPlaying() {
+        hideMoreVideoButton();
+    }
+
+    @Override
+    public void onPaused() {
+        hideMoreVideoButton();
+    }
+
+    @Override
+    public void onStopped() {
+
+    }
+
+    @Override
+    public void onBuffering(boolean b) {
+
+    }
+
+    @Override
+    public void onSeekTo(int i) {
+
     }
 }
