@@ -43,6 +43,4 @@ dependencies {
     //图片加载
     implementation 'com.github.bumptech.glide:glide:4.10.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
-    //播放器
-    implementation 'com.github.Zoeie:MixPlayer:r1.3.7'
 }
